@@ -5,51 +5,58 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hamza Dönmez</title>
   <style>
+    /* GENEL TARZ */
     body {
       margin: 0;
-      font-family: "Segoe UI", Arial, sans-serif;
-      background-color: #f5f5f5;
-      color: #222;
+      font-family: "Inter", "Segoe UI", Arial, sans-serif;
+      background-color: #1c1c1c;
+      color: #eaeaea;
     }
 
-    /* Üst bar */
+    /* ÜST BAR */
     nav {
       background-color: #111;
-      color: white;
+      padding: 15px 40px;
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
-      padding: 10px 30px;
-    }
-
-    nav .logo {
-      font-weight: bold;
-      font-size: 1.2rem;
-      letter-spacing: 0.5px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
 
     nav ul {
       list-style: none;
       display: flex;
+      gap: 40px;
       margin: 0;
       padding: 0;
-      gap: 30px;
     }
 
     nav ul li {
       cursor: pointer;
-      transition: color 0.3s;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      transition: color 0.3s, transform 0.2s;
+      color: #ddd;
     }
 
-    nav ul li:hover,
+    nav ul li:hover {
+      color: #00aced;
+      transform: translateY(-2px);
+    }
+
     nav ul li.active {
       color: #00aced;
+      border-bottom: 2px solid #00aced;
+      padding-bottom: 4px;
     }
 
-    /* İçerik kısmı */
+    /* İÇERİK */
     .content {
-      max-width: 900px;
-      margin: 40px auto;
+      max-width: 1000px;
+      margin: 60px auto;
       padding: 0 20px;
       text-align: center;
     }
@@ -67,14 +74,68 @@
       from {opacity: 0;}
       to {opacity: 1;}
     }
+
+    /* HABERLER */
+    .news {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
+
+    .news-item {
+      background: #2a2a2a;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: left;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .news-item:hover {
+      background: #333;
+      transform: translateY(-4px);
+    }
+
+    .news-item h3 {
+      margin-top: 0;
+      color: #00aced;
+    }
+
+    .news-item a {
+      color: #00aced;
+      text-decoration: none;
+    }
+
+    .news-item img {
+      width: 100%;
+      border-radius: 10px;
+      margin-top: 10px;
+    }
+
+    .news-item p {
+      color: #ccc;
+      line-height: 1.4em;
+    }
+
+    /* SAYFA BAŞLIKLARI */
+    h1 {
+      color: #00aced;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    p {
+      line-height: 1.6em;
+    }
+
   </style>
 </head>
 <body>
 
   <nav>
-    <div class="logo">Hamza Dönmez</div>
     <ul>
-      <li class="active" data-target="home">Ana Sayfa</li>
+      <li class="active" data-target="home">Haberler</li>
       <li data-target="about">Hakkımda</li>
       <li data-target="posts">Gönderilerim</li>
     </ul>
@@ -82,18 +143,20 @@
 
   <div class="content">
     <section id="home" class="active">
-      <h1>Hoş geldin 👋</h1>
-      <p>Burası kişisel sitem. Yeni şeyler denemek ve paylaşmak için açtım.</p>
+      <h1>Güncel Haberler 🗞️</h1>
+      <div class="news" id="news"></div>
     </section>
 
     <section id="about">
       <h1>Hakkımda</h1>
-      <p>Ben Hamza Dönmez. Sosyoloji öğrencisiyim, teknoloji ve tarih meraklısıyım.</p>
+      <p>Ben Hamza Dönmez. Sosyoloji öğrencisiyim, teknoloji ve tarih meraklısıyım.  
+      Bu siteyi, ilgilendiğim konularda içerik paylaşmak için kurdum.</p>
     </section>
 
     <section id="posts">
       <h1>Gönderilerim</h1>
-      <p>Burada yakında yazılarım, projelerim ve düşüncelerim olacak.</p>
+      <a href="https://github.com/HamzaDonmez/Gemini-Voice-AI-Assistant" target="_blank">Gemini AI Voice Assistant</a> 
+      
     </section>
   </div>
 
@@ -103,11 +166,9 @@
 
     navItems.forEach(item => {
       item.addEventListener("click", () => {
-        // Aktif sekmeyi değiştir
         navItems.forEach(i => i.classList.remove("active"));
         item.classList.add("active");
 
-        // İlgili sayfayı göster
         const target = item.dataset.target;
         sections.forEach(sec => {
           sec.classList.remove("active");
@@ -115,6 +176,37 @@
         });
       });
     });
+
+    // === Haberleri çekme ===
+    const newsContainer = document.getElementById("news");
+
+    async function fetchNews() {
+      const API_KEY = "B19f497c5aa2443eebd66ebd3d146933f"; // örn. abcd1234efgh5678
+      const url = `https://newsapi.org/v2/top-headlines?country=tr&pageSize=6&apiKey=${API_KEY}`;
+
+      try {
+        const res = await fetch(url);
+        const data = await res.json();
+
+        if (data.articles) {
+          newsContainer.innerHTML = data.articles.map(article => `
+            <div class="news-item">
+              <h3><a href="${article.url}" target="_blank">${article.title}</a></h3>
+              <p>${article.description || ""}</p>
+              ${article.urlToImage ? `<img src="${article.urlToImage}" alt="">` : ""}
+            </div>
+          `).join("");
+        } else {
+          newsContainer.innerHTML = "<p>Haber bulunamadı.</p>";
+        }
+
+      } catch (err) {
+        newsContainer.innerHTML = "<p>Haberleri çekerken hata oluştu.</p>";
+        console.error(err);
+      }
+    }
+
+    fetchNews();
   </script>
 
 </body>
