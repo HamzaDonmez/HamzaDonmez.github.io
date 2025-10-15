@@ -118,7 +118,6 @@
       line-height: 1.4em;
     }
 
-    /* SAYFA BAŞLIKLARI */
     h1 {
       color: #00aced;
       font-weight: 600;
@@ -128,7 +127,6 @@
     p {
       line-height: 1.6em;
     }
-
   </style>
 </head>
 <body>
@@ -143,24 +141,24 @@
 
   <div class="content">
     <section id="home" class="active">
-      <h1>Güncel Haberler 🗞️</h1>
+      <h1>Güncel Haber Takibi</h1>
       <div class="news" id="news"></div>
     </section>
 
     <section id="about">
       <h1>Hakkımda</h1>
-      <p>Ben Hamza Dönmez. Sosyoloji öğrencisiyim, teknoloji ve tarih meraklısıyım.  
-      Bu siteyi, ilgilendiğim konularda içerik paylaşmak için kurdum.</p>
+      <p>Ben Hamza Dönmez. 21 yaşındayım. Erzincan Üniversitesi Bilgisayar Programcılığı okuyorum. Programlamaya, oyun geliştirmeye ve veri analistliğine ilgim var. Kendimi bu alanlarda geliştirmeye çalışıyorum.</p>
     </section>
 
     <section id="posts">
       <h1>Gönderilerim</h1>
-      <a href="https://github.com/HamzaDonmez/Gemini-Voice-AI-Assistant" target="_blank">Gemini AI Voice Assistant</a> 
-      
+      <a href="https://github.com/HamzaDonmez/Gemini-Voice-AI-Assistant" target="_blank">Gemini AI Voice Assistant</a><br>
+      <a href="https://github.com/HamzaDonmez/GEMAID" target="_blank">GEMAID</a>
     </section>
   </div>
 
   <script>
+    // --- SEKME GEÇİŞLERİ ---
     const navItems = document.querySelectorAll("nav ul li");
     const sections = document.querySelectorAll("section");
 
@@ -177,36 +175,38 @@
       });
     });
 
-    // === Haberleri çekme ===
+    // --- WORLDNEWSAPI İLE HABERLER ---
     const newsContainer = document.getElementById("news");
 
     async function fetchNews() {
-      const API_KEY = "B19f497c5aa2443eebd66ebd3d146933f"; // örn. abcd1234efgh5678
-      const url = `https://newsapi.org/v2/top-headlines?country=tr&pageSize=6&apiKey=${API_KEY}`;
+      const API_KEY = "bf2fea9112834c2fb6b176d1b95b6057"
+      const url = `https://api.worldnewsapi.com/search-news?api-key=${API_KEY}&source-country=tr&language=tr&text=uzay%20OR%20teknoloji%20OR%20yapay%20zeka`;
 
       try {
         const res = await fetch(url);
         const data = await res.json();
 
-        if (data.articles) {
-          newsContainer.innerHTML = data.articles.map(article => `
-            <div class="news-item">
-              <h3><a href="${article.url}" target="_blank">${article.title}</a></h3>
-              <p>${article.description || ""}</p>
-              ${article.urlToImage ? `<img src="${article.urlToImage}" alt="">` : ""}
-            </div>
-          `).join("");
-        } else {
+        if (!data.news || data.news.length === 0) {
           newsContainer.innerHTML = "<p>Haber bulunamadı.</p>";
+          return;
         }
 
+        newsContainer.innerHTML = data.news.map(article => `
+          <div class="news-item">
+            <h3><a href="${article.url}" target="_blank">${article.title}</a></h3>
+            <p>${article.text ? article.text.slice(0, 180) + "..." : ""}</p>
+            ${article.image ? `<img src="${article.image}" alt="">` : ""}
+          </div>
+        `).join("");
+
       } catch (err) {
-        newsContainer.innerHTML = "<p>Haberleri çekerken hata oluştu.</p>";
         console.error(err);
+        newsContainer.innerHTML = "<p>Haberleri çekerken hata oluştu.</p>";
       }
     }
 
     fetchNews();
+    setInterval(fetchNews, 600000);
   </script>
 
 </body>
