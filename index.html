@@ -5,17 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hamza Dönmez</title>
   <style>
-    /* GENEL TARZ */
     body {
       margin: 0;
       font-family: "Inter", "Segoe UI", Arial, sans-serif;
-      background-color: #1c1c1c;
+      background-color: #121212;
       color: #eaeaea;
     }
 
-    /* ÜST BAR */
     nav {
-      background-color: #111;
+      background-color: #0d0d0d;
       padding: 15px 40px;
       display: flex;
       justify-content: center;
@@ -29,7 +27,7 @@
     nav ul {
       list-style: none;
       display: flex;
-      gap: 40px;
+      gap: 50px;
       margin: 0;
       padding: 0;
     }
@@ -39,7 +37,8 @@
       font-weight: 500;
       letter-spacing: 0.5px;
       transition: color 0.3s, transform 0.2s;
-      color: #ddd;
+      color: #ccc;
+      font-size: 18px;
     }
 
     nav ul li:hover {
@@ -53,9 +52,8 @@
       padding-bottom: 4px;
     }
 
-    /* İÇERİK */
     .content {
-      max-width: 1000px;
+      max-width: 900px;
       margin: 60px auto;
       padding: 0 20px;
       text-align: center;
@@ -75,25 +73,37 @@
       to {opacity: 1;}
     }
 
-    /* HABERLER */
+    .filter {
+      margin-bottom: 25px;
+    }
+
+    .filter select {
+      background: #1f1f1f;
+      color: #eaeaea;
+      border: 1px solid #333;
+      padding: 10px 15px;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
     .news {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      display: flex;
+      flex-direction: column;
       gap: 25px;
       margin-top: 30px;
     }
 
     .news-item {
-      background: #2a2a2a;
+      background: #1e1e1e;
       border-radius: 12px;
-      padding: 20px;
+      padding: 25px;
       text-align: left;
       box-shadow: 0 3px 10px rgba(0,0,0,0.3);
       transition: transform 0.2s, background 0.2s;
     }
 
     .news-item:hover {
-      background: #333;
+      background: #252525;
       transform: translateY(-4px);
     }
 
@@ -110,12 +120,13 @@
     .news-item img {
       width: 100%;
       border-radius: 10px;
-      margin-top: 10px;
+      margin-top: 15px;
     }
 
     .news-item p {
-      color: #ccc;
-      line-height: 1.4em;
+      color: #bbb;
+      line-height: 1.6em;
+      margin-top: 8px;
     }
 
     h1 {
@@ -124,9 +135,6 @@
       margin-bottom: 20px;
     }
 
-    p {
-      line-height: 1.6em;
-    }
   </style>
 </head>
 <body>
@@ -142,6 +150,17 @@
   <div class="content">
     <section id="home" class="active">
       <h1>Güncel Haber Takibi</h1>
+
+      <div class="filter">
+        <select id="categorySelect">
+          <option value="uzay OR teknoloji OR yapay zeka">Teknoloji & Uzay</option>
+          <option value="bilim OR keşif OR araştırma">Bilim</option>
+          <option value="programlama OR yazılım OR kodlama">Programlama</option>
+          <option value="yapay zeka OR makine öğrenmesi OR robotik">Yapay Zeka</option>
+          <option value="internet OR siber güvenlik OR dijital">İnternet & Güvenlik</option>
+        </select>
+      </div>
+
       <div class="news" id="news"></div>
     </section>
 
@@ -158,7 +177,6 @@
   </div>
 
   <script>
-    // --- SEKME GEÇİŞLERİ ---
     const navItems = document.querySelectorAll("nav ul li");
     const sections = document.querySelectorAll("section");
 
@@ -166,7 +184,6 @@
       item.addEventListener("click", () => {
         navItems.forEach(i => i.classList.remove("active"));
         item.classList.add("active");
-
         const target = item.dataset.target;
         sections.forEach(sec => {
           sec.classList.remove("active");
@@ -175,12 +192,12 @@
       });
     });
 
-    // --- WORLDNEWSAPI İLE HABERLER ---
     const newsContainer = document.getElementById("news");
+    const categorySelect = document.getElementById("categorySelect");
 
-    async function fetchNews() {
-      const API_KEY = "bf2fea9112834c2fb6b176d1b95b6057"
-      const url = `https://api.worldnewsapi.com/search-news?api-key=${API_KEY}&source-country=tr&language=tr&text=uzay%20OR%20teknoloji%20OR%20yapay%20zeka`;
+    async function fetchNews(topic) {
+      const API_KEY = "bf2fea9112834c2fb6b176d1b95b6057";
+      const url = `https://api.worldnewsapi.com/search-news?api-key=${API_KEY}&source-country=tr&language=tr&text=${encodeURIComponent(topic)}`;
 
       try {
         const res = await fetch(url);
@@ -194,7 +211,7 @@
         newsContainer.innerHTML = data.news.map(article => `
           <div class="news-item">
             <h3><a href="${article.url}" target="_blank">${article.title}</a></h3>
-            <p>${article.text ? article.text.slice(0, 180) + "..." : ""}</p>
+            <p>${article.text ? article.text.slice(0, 220) + "..." : ""}</p>
             ${article.image ? `<img src="${article.image}" alt="">` : ""}
           </div>
         `).join("");
@@ -205,8 +222,12 @@
       }
     }
 
-    fetchNews();
-    setInterval(fetchNews, 600000);
+    categorySelect.addEventListener("change", (e) => {
+      fetchNews(e.target.value);
+    });
+
+    fetchNews(categorySelect.value);
+    setInterval(() => fetchNews(categorySelect.value), 600000);
   </script>
 
 </body>
