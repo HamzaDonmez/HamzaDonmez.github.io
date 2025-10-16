@@ -73,117 +73,106 @@
       to {opacity: 1;}
     }
 
-    .filter {
-      margin-bottom: 25px;
-    }
-
-    .filter select {
-      background: #1f1f1f;
-      color: #eaeaea;
-      border: 1px solid #333;
-      padding: 10px 15px;
-      border-radius: 8px;
-      font-size: 16px;
-    }
-
-    .news {
-      display: flex;
-      flex-direction: column;
-      gap: 25px;
-      margin-top: 30px;
-    }
-
-    .news-item {
-      background: #1e1e1e;
-      border-radius: 12px;
-      padding: 25px;
-      text-align: left;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.3);
-      transition: transform 0.2s, background 0.2s;
-    }
-
-    .news-item:hover {
-      background: #252525;
-      transform: translateY(-4px);
-    }
-
-    .news-item h3 {
-      margin-top: 0;
-      color: #00aced;
-    }
-
-    .news-item a {
-      color: #00aced;
-      text-decoration: none;
-    }
-
-    .news-item img {
-      width: 100%;
-      border-radius: 10px;
-      margin-top: 15px;
-    }
-
-    .news-item p {
-      color: #bbb;
-      line-height: 1.6em;
-      margin-top: 8px;
-    }
-
     h1 {
       color: #00aced;
       font-weight: 600;
       margin-bottom: 20px;
     }
-    .project-card{
+
+    .project-card {
       background: #1e1e1e;
       border-radius: 10px;
       padding: 20px;
       margin: 15px 0;
-      box-shadow: 0 3px 8px rgb(0,0,0,0.3);
+      box-shadow: 0 3px 8px rgba(0,0,0,0.3);
       transition: all 0.2s ease;
       text-align: left;
     }
-    .project-card:hover{
+
+    .project-card:hover {
       background: #252525;
       transform: translateY(-3px);
     }
-    .project-card a{
-      color: #**aced;
+
+    .project-card a {
+      color: #00aced;
       font-weight: 600;
       font-size: 18px;
       text-decoration: none;
     }
+
     .project-card p {
       color: #bbb;
-      margin-top : 6px;
+      margin-top: 6px;
       font-size: 15px;
     }
-    footer{
+
+    footer {
       background: #0d0d0d;
       text-align: center;
       padding: 40px 20px;
       margin-top: 60px;
       border-top: 1px solid #222;
     }
-    footer h2{
+
+    footer h2 {
       color: #00aced;
       font-weight: 600;
       margin-bottom: 15px;
     }
-    footer .links{
+
+    footer .links {
       display: flex;
       justify-content: center;
       gap: 30px;
       flex-wrap: wrap;
     }
+
     footer .links a {
       color: #eaeaea;
       text-decoration: none;
       font-size: 16px;
       transition: color 0.2s;
     }
+
     footer .links a:hover {
-    color: #00aced;
+      color: #00aced;
+    }
+
+    /* Film önerileri */
+    .category {
+      margin-top: 40px;
+      text-align: left;
+    }
+
+    .category h2 {
+      color: #00aced;
+      margin-bottom: 15px;
+    }
+
+    .films {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+    }
+
+    .film-card {
+      background: #1e1e1e;
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .film-card:hover {
+      background: #252525;
+      transform: translateY(-3px);
+    }
+
+    .film-card a {
+      color: #00aced;
+      font-weight: 500;
+      text-decoration: none;
     }
   </style>
 </head>
@@ -191,107 +180,132 @@
 
   <nav>
     <ul>
-      <li class="active" data-target="home">Haberler</li>
-      <li data-target="about">Hakkımda</li>
+      <li data-target="films">Film Önerileri</li>
+      <li class="active" data-target="about">Hakkımda</li>
       <li data-target="posts">Gönderilerim</li>
     </ul>
   </nav>
 
   <div class="content">
-    <section id="home" class="active">
-      <h1>Güncel Haber Takibi</h1>
-
-      <div class="filter">
-        <select id="categorySelect">
-          <option value="uzay OR teknoloji OR yapay zeka">Teknoloji & Uzay</option>
-          <option value="bilim OR keşif OR araştırma">Bilim</option>
-          <option value="programlama OR yazılım OR kodlama">Programlama</option>
-          <option value="yapay zeka OR makine öğrenmesi OR robotik">Yapay Zeka</option>
-          <option value="internet OR siber güvenlik OR dijital">İnternet & Güvenlik</option>
-        </select>
-      </div>
-
-      <div class="news" id="news"></div>
-    </section>
-
-    <section id="about">
+    <section id="about" class="active">
       <h1>Hakkımda</h1>
       <p>Ben Hamza Dönmez. 21 yaşındayım. Erzincan Üniversitesi Bilgisayar Programcılığı okuyorum. Programlamaya, oyun geliştirmeye ve veri analistliğine ilgim var. Kendimi bu alanlarda geliştirmeye çalışıyorum.</p>
     </section>
 
+    <section id="films">
+      <h1>Film Önerileri</h1>
+
+      <!-- Dram ve Psikoloji -->
+      <div class="category">
+        <h2>Dram ve Psikoloji</h2>
+        <div class="films">
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0095953/" target="_blank">Rain Man</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt1130884/" target="_blank">Shutter Island</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0758758/" target="_blank">Into the Wild</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0120689/" target="_blank">The Green Mile</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0137523/" target="_blank">Fight Club</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0120382/" target="_blank">The Truman Show</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0253474/" target="_blank">The Pianist</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0109830/" target="_blank">Forrest Gump</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0119217/" target="_blank">Good Will Hunting</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0268978/" target="_blank">A Beautiful Mind</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0169547/" target="_blank">American Beauty</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0477348/" target="_blank">No Country for Old Men</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0808417/" target="_blank">Persepolis</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt3901826/" target="_blank">The Breadwinner</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0099334/" target="_blank">Cyrano de Bergerac</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0050083/" target="_blank">12 Angry Men</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0111161/" target="_blank">The Shawshank Redemption</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt7984734/" target="_blank">The Lighthouse</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt6751668/" target="_blank">Parasite</a></div>
+        </div>
+      </div>
+
+      <!-- Gerilim ve Gizem -->
+      <div class="category">
+        <h2>Gerilim ve Gizem</h2>
+        <div class="films">
+          <div class="film-card"><a href="https://www.imdb.com/title/tt3460252/" target="_blank">The Hateful Eight</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt2881698/" target="_blank">Skinwalker Ranch</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0119167/" target="_blank">Funny Games (1997)</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt4263482/" target="_blank">The VVitch</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0404032/" target="_blank">The Exorcism of Emily Rose</a></div>
+        </div>
+      </div>
+
+      <!-- Uzay ve Bilim Kurgu -->
+      <div class="category">
+        <h2>Uzay/Uzaylı ve Bilim Kurgu</h2>
+        <div class="films">
+          <div class="film-card"><a href="https://www.imdb.com/title/tt14509110/" target="_blank">No One Will Save You</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0756683/" target="_blank">The Man from Earth</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0096754/" target="_blank">The Abyss</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt3659388/" target="_blank">The Martian</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0448134/" target="_blank">Sunshine</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt5442430/" target="_blank">Life</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0120184/" target="_blank">Sphere</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0118884/" target="_blank">Contact</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0119081/" target="_blank">Event Horizon</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt2543164/" target="_blank">Arrival</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt1220198/" target="_blank">The Fourth Kind</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0286106/" target="_blank">Signs</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0078748/" target="_blank">Alien (1979)</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0106912/" target="_blank">Fire in the Sky</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0285531/" target="_blank">Dreamcatcher</a></div>
+        </div>
+      </div>
+
+      <!-- Savaş ve Tarih -->
+      <div class="category">
+        <h2>Savaş ve Tarih</h2>
+        <div class="films">
+          <div class="film-card"><a href="https://www.imdb.com/title/tt7984766/" target="_blank">The King</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt11547520/" target="_blank">Kalashnikov</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt1016150/" target="_blank">All Quiet on the Western Front</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0265086/" target="_blank">Black Hawk Down</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0363163/" target="_blank">Downfall</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0346293/" target="_blank">Hitler: The Rise of Evil</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0399295/" target="_blank">Lord of War</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0118799/" target="_blank">Life Is Beautiful</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0325710/" target="_blank">The Last Samurai</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt2713180/" target="_blank">Fury</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0120815/" target="_blank">Saving Private Ryan</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0093105/" target="_blank">Good Morning, Vietnam</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt31323988/" target="_blank">Mehmed: Fatihler Sultanı</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt3577058/" target="_blank">Gallipoli</a></div>
+        </div>
+      </div>
+
+      <!-- Aksiyon -->
+      <div class="category">
+        <h2>Aksiyon, Suç ve Distopya</h2>
+        <div class="films">
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0075314/" target="_blank">Taxi Driver</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0434409/" target="_blank">V for Vendetta</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0086250/" target="_blank">Scarface</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0162222/" target="_blank">Cast Away</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt1853728/" target="_blank">Django Unchained</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0110912/" target="_blank">Pulp Fiction</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0109506/" target="_blank">The Crow (1994)</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0320691/" target="_blank">Underworld</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0289043/" target="_blank">28 Days Later</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0090163/" target="_blank">Threads</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0060196/" target="_blank">The Good, the Bad and the Ugly</a></div>
+        </div>
+      </div>
+
+      <!-- Komedi -->
+      <div class="category">
+        <h2>Komedi</h2>
+        <div class="films">
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0097044/" target="_blank">Chances Are</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0387808/" target="_blank">Idiocracy</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt1645170/" target="_blank">The Dictator</a></div>
+        </div>
+      </div>
+    </section>
+
     <section id="posts">
       <h1>Gönderilerim</h1>
-      <div class= "project-card">
-        <a href="https://github.com/HamzaDonmez/Gemini-Voice-AI-Assistant" target="_blank"> Gemini AI Voice Assistant </a>
-        <p> Yapay Zeka Tabanlı Sesli Asistan Projesi</p>
-      </div>
-      <div class= "project-card">
-        <a href="https://github.com/HamzaDonmez/GEMAID" target="_blank">GEMAID</a>
-        <p>Yapay Zeka Asistan</p>
-    </section>
-  </div>
-
-  <script>
-    const navItems = document.querySelectorAll("nav ul li");
-    const sections = document.querySelectorAll("section");
-
-    navItems.forEach(item => {
-      item.addEventListener("click", () => {
-        navItems.forEach(i => i.classList.remove("active"));
-        item.classList.add("active");
-        const target = item.dataset.target;
-        sections.forEach(sec => {
-          sec.classList.remove("active");
-          if (sec.id === target) sec.classList.add("active");
-        });
-      });
-    });
-
-    const newsContainer = document.getElementById("news");
-    const categorySelect = document.getElementById("categorySelect");
-
-    async function fetchNews(topic) {
-      const API_KEY = "bf2fea9112834c2fb6b176d1b95b6057";
-      const url = `https://api.worldnewsapi.com/search-news?api-key=${API_KEY}&source-country=tr&language=tr&text=${encodeURIComponent(topic)}`;
-
-      try {
-        const res = await fetch(url);
-        const data = await res.json();
-
-        if (!data.news || data.news.length === 0) {
-          newsContainer.innerHTML = "<p>Haber bulunamadı.</p>";
-          return;
-        }
-
-        newsContainer.innerHTML = data.news.map(article => `
-          <div class="news-item">
-            <h3><a href="${article.url}" target="_blank">${article.title}</a></h3>
-            <p>${article.text ? article.text.slice(0, 220) + "..." : ""}</p>
-            ${article.image ? `<img src="${article.image}" alt="">` : ""}
-          </div>
-        `).join("");
-
-      } catch (err) {
-        console.error(err);
-        newsContainer.innerHTML = "<p>Haberleri çekerken hata oluştu.</p>";
-      }
-    }
-
-    categorySelect.addEventListener("change", (e) => {
-      fetchNews(e.target.value);
-    });
-
-    fetchNews(categorySelect.value);
-    setInterval(() => fetchNews(categorySelect.value), 600000);
-  </script>
-
-<footer>
-  <h2>Bağlantılar</h2>
-  <div class="links">
-    <a href="https://www.linkedin.com/in/hamza-d%C3%B6nmez-4907b9383" target="_blank">LinkedIn</a>
-    <a href="https://github.com/HamzaDonmez" target="_blank">GitHub</a>
-    <a href="mailto:hamzadonmez53@gmail.com">E-posta</a>
-  </div>
-</footer>
-</body>
-</html>
+      <div class="project-card">
+        <a href="https://github.com/HamzaDon
