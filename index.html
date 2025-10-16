@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Hamza Dönmez</title>
   <style>
     body {
@@ -39,6 +39,7 @@
       transition: color 0.3s, transform 0.2s;
       color: #ccc;
       font-size: 18px;
+      padding: 6px 0;
     }
 
     nav ul li:hover {
@@ -53,7 +54,7 @@
     }
 
     .content {
-      max-width: 900px;
+      max-width: 1000px;
       margin: 60px auto;
       padding: 0 20px;
       text-align: center;
@@ -61,7 +62,7 @@
 
     section {
       display: none;
-      animation: fadeIn 0.4s ease;
+      animation: fadeIn 0.35s ease;
     }
 
     section.active {
@@ -77,6 +78,11 @@
       color: #00aced;
       font-weight: 600;
       margin-bottom: 20px;
+    }
+
+    p {
+      color: #d0d0d0;
+      line-height: 1.6;
     }
 
     .project-card {
@@ -147,21 +153,22 @@
 
     .category h2 {
       color: #00aced;
-      margin-bottom: 15px;
+      margin-bottom: 12px;
     }
 
     .films {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 15px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 12px;
     }
 
     .film-card {
       background: #1e1e1e;
       border-radius: 10px;
-      padding: 15px;
+      padding: 12px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.3);
       transition: background 0.2s, transform 0.2s;
+      text-align: left;
     }
 
     .film-card:hover {
@@ -173,6 +180,13 @@
       color: #00aced;
       font-weight: 500;
       text-decoration: none;
+      display: inline-block;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 600px) {
+      nav ul { gap: 18px; }
+      .content { margin: 30px 12px; }
     }
   </style>
 </head>
@@ -187,110 +201,111 @@
   </nav>
 
   <div class="content">
+
     <section id="about" class="active">
       <h1>Hakkımda</h1>
-      <p>Ben Hamza Dönmez. 21 yaşındayım. Erzincan Üniversitesi Bilgisayar Programcılığı okuyorum. Programlamaya, oyun geliştirmeye ve veri analistliğine ilgim var. Kendimi bu alanlarda geliştirmeye çalışıyorum.</p>
+      <p>Ben Hamza Dönmez. 21 yaşındayım. Aktif olarak Erzincan Üniversitesi, Bilgisayar Programcılığı bölümünde okuyorum. Programlamaya, oyun geliştirmeye ve veri analistliğine ilgi duyuyor ve kendimi bu alanda geliştirmek istiyorum. Projeler yaparak kendimi geliştirmeye çalışyorum. </p>
     </section>
+
 
     <section id="films">
       <h1>Film Önerileri</h1>
 
-      <!-- Dram ve Psikoloji -->
+
       <div class="category">
         <h2>Dram ve Psikoloji</h2>
         <div class="films">
-          <div class="film-card"><a href="https://www.imdb.com/title/tt0095953/" target="_blank">Rain Man</a></div>
-          <div class="film-card"><a href="https://www.imdb.com/title/tt1130884/" target="_blank">Shutter Island</a></div>
-          <div class="film-card"><a href="https://www.imdb.com/title/tt0758758/" target="_blank">Into the Wild</a></div>
-          <div class="film-card"><a href="https://www.imdb.com/title/tt0120689/" target="_blank">The Green Mile</a></div>
-          <div class="film-card"><a href="https://www.imdb.com/title/tt0137523/" target="_blank">Fight Club</a></div>
-          <div class="film-card"><a href="https://www.imdb.com/title/tt0120382/" target="_blank">The Truman Show</a></div>
-          <div class="film-card"><a href="https://www.imdb.com/title/tt0253474/" target="_blank">The Pianist</a></div>
-          <div class="film-card"><a href="https://www.imdb.com/title/tt0109830/" target="_blank">Forrest Gump</a></div>
-          <div class="film-card"><a href="https://www.imdb.com/title/tt0119217/" target="_blank">Good Will Hunting</a></div>
-          <div class="film-card"><a href="https://www.imdb.com/title/tt0268978/" target="_blank">A Beautiful Mind</a></div>
-          <div class="film-card"><a href="https://www.imdb.com/title/tt0169547/" target="_blank">American Beauty</a></div>
-          <div class="film-card"><a href="https://www.imdb.com/title/tt0477348/" target="_blank">No Country for Old Men</a></div>
-          <div class="film-card"><a href="https://www.imdb.com/title/tt0808417/" target="_blank">Persepolis</a></div>
-          <div class="film-card"><a href="https://www.imdb.com/title/tt3901826/" target="_blank">The Breadwinner</a></div>
-          <div class="film-card"><a href="https://www.imdb.com/title/tt0099334/" target="_blank">Cyrano de Bergerac</a></div>
-          <div class="film-card"><a href="https://www.imdb.com/title/tt0050083/" target="_blank">12 Angry Men</a></div>
-          <div class="film-card"><a href="https://www.imdb.com/title/tt0111161/" target="_blank">The Shawshank Redemption</a></div>
-          <div class="film-card"><a href="https://www.imdb.com/title/tt7984734/" target="_blank">The Lighthouse</a></div>
-          <div class="film-card"><a href="https://www.imdb.com/title/tt6751668/" target="_blank">Parasite</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0095953/" target="_blank" rel="noopener">Rain Man</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt1130884/" target="_blank" rel="noopener">Shutter Island</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0758758/" target="_blank" rel="noopener">Into the Wild</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0120689/" target="_blank" rel="noopener">Yeşil Yol (The Green Mile)</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0137523/" target="_blank" rel="noopener">Fight Club</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0120382/" target="_blank" rel="noopener">Truman Show</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0253474/" target="_blank" rel="noopener">The Pianist</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0109830/" target="_blank" rel="noopener">Forrest Gump</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0119217/" target="_blank" rel="noopener">Good Will Hunting</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0268978/" target="_blank" rel="noopener">A Beautiful Mind</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0169547/" target="_blank" rel="noopener">American Beauty</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0477348/" target="_blank" rel="noopener">No Country for Old Men</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0808417/" target="_blank" rel="noopener">Persepolis</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt3901826/" target="_blank" rel="noopener">The Breadwinner</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0099334/" target="_blank" rel="noopener">Cyrano de Bergerac</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0050083/" target="_blank" rel="noopener">12 Angry Men</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0111161/" target="_blank" rel="noopener">Esaretin Bedeli (The Shawshank Redemption)</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt7984734/" target="_blank" rel="noopener">The Lighthouse</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt6751668/" target="_blank" rel="noopener">Parasite</a></div>
         </div>
       </div>
 
-      <!-- Gerilim ve Gizem -->
+
       <div class="category">
         <h2>Gerilim ve Gizem</h2>
         <div class="films">
-          <div class="film-card"><a href="https://www.imdb.com/title/tt3460252/" target="_blank">The Hateful Eight</a></div>
-          <div class="film-card"><a href="https://www.imdb.com/title/tt2881698/" target="_blank">Skinwalker Ranch</a></div>
-          <div class="film-card"><a href="https://www.imdb.com/title/tt0119167/" target="_blank">Funny Games (1997)</a></div>
-          <div class="film-card"><a href="https://www.imdb.com/title/tt4263482/" target="_blank">The VVitch</a></div>
-          <div class="film-card"><a href="https://www.imdb.com/title/tt0404032/" target="_blank">The Exorcism of Emily Rose</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt3460252/" target="_blank" rel="noopener">The Hateful Eight</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt2881698/" target="_blank" rel="noopener">Skinwalker Ranch</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0119167/" target="_blank" rel="noopener">Funny Games (1997)</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt4263482/" target="_blank" rel="noopener">The VVitch</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0404032/" target="_blank" rel="noopener">The Exorcism of Emily Rose</a></div>
         </div>
       </div>
 
-      <!-- Uzay ve Bilim Kurgu -->
+
       <div class="category">
         <h2>Uzay/Uzaylı ve Bilim Kurgu</h2>
         <div class="films">
-          <div class="film-card"><a href="https://www.imdb.com/title/tt14509110/" target="_blank">No One Will Save You</a></div>
-          <div class="film-card"><a href="https://www.imdb.com/title/tt0756683/" target="_blank">The Man from Earth</a></div>
-          <div class="film-card"><a href="https://www.imdb.com/title/tt0096754/" target="_blank">The Abyss</a></div>
-          <div class="film-card"><a href="https://www.imdb.com/title/tt3659388/" target="_blank">The Martian</a></div>
-          <div class="film-card"><a href="https://www.imdb.com/title/tt0448134/" target="_blank">Sunshine</a></div>
-          <div class="film-card"><a href="https://www.imdb.com/title/tt5442430/" target="_blank">Life</a></div>
-          <div class="film-card"><a href="https://www.imdb.com/title/tt0120184/" target="_blank">Sphere</a></div>
-          <div class="film-card"><a href="https://www.imdb.com/title/tt0118884/" target="_blank">Contact</a></div>
-          <div class="film-card"><a href="https://www.imdb.com/title/tt0119081/" target="_blank">Event Horizon</a></div>
-          <div class="film-card"><a href="https://www.imdb.com/title/tt2543164/" target="_blank">Arrival</a></div>
-          <div class="film-card"><a href="https://www.imdb.com/title/tt1220198/" target="_blank">The Fourth Kind</a></div>
-          <div class="film-card"><a href="https://www.imdb.com/title/tt0286106/" target="_blank">Signs</a></div>
-          <div class="film-card"><a href="https://www.imdb.com/title/tt0078748/" target="_blank">Alien (1979)</a></div>
-          <div class="film-card"><a href="https://www.imdb.com/title/tt0106912/" target="_blank">Fire in the Sky</a></div>
-          <div class="film-card"><a href="https://www.imdb.com/title/tt0285531/" target="_blank">Dreamcatcher</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt14509110/" target="_blank" rel="noopener">No One Will Save You</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0756683/" target="_blank" rel="noopener">The Man from Earth</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0096754/" target="_blank" rel="noopener">The Abyss</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt3659388/" target="_blank" rel="noopener">The Martian</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0448134/" target="_blank" rel="noopener">Sunshine</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt5442430/" target="_blank" rel="noopener">Life</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0120184/" target="_blank" rel="noopener">Sphere</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0118884/" target="_blank" rel="noopener">Contact</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0119081/" target="_blank" rel="noopener">Event Horizon</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt2543164/" target="_blank" rel="noopener">Arrival</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt1220198/" target="_blank" rel="noopener">The Fourth Kind</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0286106/" target="_blank" rel="noopener">Signs</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0078748/" target="_blank" rel="noopener">Alien (1979)</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0106912/" target="_blank" rel="noopener">Fire in the Sky</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0285531/" target="_blank" rel="noopener">Dreamcatcher</a></div>
         </div>
       </div>
 
-      <!-- Savaş ve Tarih -->
       <div class="category">
         <h2>Savaş ve Tarih</h2>
         <div class="films">
-          <div class="film-card"><a href="https://www.imdb.com/title/tt7984766/" target="_blank">The King</a></div>
-          <div class="film-card"><a href="https://www.imdb.com/title/tt11547520/" target="_blank">Kalashnikov</a></div>
-          <div class="film-card"><a href="https://www.imdb.com/title/tt1016150/" target="_blank">All Quiet on the Western Front</a></div>
-          <div class="film-card"><a href="https://www.imdb.com/title/tt0265086/" target="_blank">Black Hawk Down</a></div>
-          <div class="film-card"><a href="https://www.imdb.com/title/tt0363163/" target="_blank">Downfall</a></div>
-          <div class="film-card"><a href="https://www.imdb.com/title/tt0346293/" target="_blank">Hitler: The Rise of Evil</a></div>
-          <div class="film-card"><a href="https://www.imdb.com/title/tt0399295/" target="_blank">Lord of War</a></div>
-          <div class="film-card"><a href="https://www.imdb.com/title/tt0118799/" target="_blank">Life Is Beautiful</a></div>
-          <div class="film-card"><a href="https://www.imdb.com/title/tt0325710/" target="_blank">The Last Samurai</a></div>
-          <div class="film-card"><a href="https://www.imdb.com/title/tt2713180/" target="_blank">Fury</a></div>
-          <div class="film-card"><a href="https://www.imdb.com/title/tt0120815/" target="_blank">Saving Private Ryan</a></div>
-          <div class="film-card"><a href="https://www.imdb.com/title/tt0093105/" target="_blank">Good Morning, Vietnam</a></div>
-          <div class="film-card"><a href="https://www.imdb.com/title/tt31323988/" target="_blank">Mehmed: Fatihler Sultanı</a></div>
-          <div class="film-card"><a href="https://www.imdb.com/title/tt3577058/" target="_blank">Gallipoli</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt7984766/" target="_blank" rel="noopener">The King</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt11547520/" target="_blank" rel="noopener">Kalashnikov</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt1016150/" target="_blank" rel="noopener">All Quiet on the Western Front</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0265086/" target="_blank" rel="noopener">Black Hawk Down</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0363163/" target="_blank" rel="noopener">Downfall</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0346293/" target="_blank" rel="noopener">Hitler: The Rise of Evil</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0399295/" target="_blank" rel="noopener">Lord of War</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0118799/" target="_blank" rel="noopener">Life Is Beautiful</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0325710/" target="_blank" rel="noopener">The Last Samurai</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt2713180/" target="_blank" rel="noopener">Fury</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0120815/" target="_blank" rel="noopener">Saving Private Ryan</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0093105/" target="_blank" rel="noopener">Good Morning, Vietnam</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt31323988/" target="_blank" rel="noopener">Mehmed: Fatihler Sultanı</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt3577058/" target="_blank" rel="noopener">Gallipoli</a></div>
         </div>
       </div>
 
-      <!-- Aksiyon -->
+
       <div class="category">
         <h2>Aksiyon, Suç ve Distopya</h2>
         <div class="films">
-          <div class="film-card"><a href="https://www.imdb.com/title/tt0075314/" target="_blank">Taxi Driver</a></div>
-          <div class="film-card"><a href="https://www.imdb.com/title/tt0434409/" target="_blank">V for Vendetta</a></div>
-          <div class="film-card"><a href="https://www.imdb.com/title/tt0086250/" target="_blank">Scarface</a></div>
-          <div class="film-card"><a href="https://www.imdb.com/title/tt0162222/" target="_blank">Cast Away</a></div>
-          <div class="film-card"><a href="https://www.imdb.com/title/tt1853728/" target="_blank">Django Unchained</a></div>
-          <div class="film-card"><a href="https://www.imdb.com/title/tt0110912/" target="_blank">Pulp Fiction</a></div>
-          <div class="film-card"><a href="https://www.imdb.com/title/tt0109506/" target="_blank">The Crow (1994)</a></div>
-          <div class="film-card"><a href="https://www.imdb.com/title/tt0320691/" target="_blank">Underworld</a></div>
-          <div class="film-card"><a href="https://www.imdb.com/title/tt0289043/" target="_blank">28 Days Later</a></div>
-          <div class="film-card"><a href="https://www.imdb.com/title/tt0090163/" target="_blank">Threads</a></div>
-          <div class="film-card"><a href="https://www.imdb.com/title/tt0060196/" target="_blank">The Good, the Bad and the Ugly</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0075314/" target="_blank" rel="noopener">Taxi Driver</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0434409/" target="_blank" rel="noopener">V for Vendetta</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0086250/" target="_blank" rel="noopener">Scarface</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0162222/" target="_blank" rel="noopener">Cast Away</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt1853728/" target="_blank" rel="noopener">Django Unchained</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0110912/" target="_blank" rel="noopener">Pulp Fiction</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0109506/" target="_blank" rel="noopener">The Crow (1994)</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0320691/" target="_blank" rel="noopener">Underworld</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0289043/" target="_blank" rel="noopener">28 Days Later</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0090163/" target="_blank" rel="noopener">Threads</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0060196/" target="_blank" rel="noopener">The Good, the Bad and the Ugly</a></div>
         </div>
       </div>
 
@@ -298,14 +313,76 @@
       <div class="category">
         <h2>Komedi</h2>
         <div class="films">
-          <div class="film-card"><a href="https://www.imdb.com/title/tt0097044/" target="_blank">Chances Are</a></div>
-          <div class="film-card"><a href="https://www.imdb.com/title/tt0387808/" target="_blank">Idiocracy</a></div>
-          <div class="film-card"><a href="https://www.imdb.com/title/tt1645170/" target="_blank">The Dictator</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0097044/" target="_blank" rel="noopener">Chances Are</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt0387808/" target="_blank" rel="noopener">Idiocracy</a></div>
+          <div class="film-card"><a href="https://www.imdb.com/title/tt1645170/" target="_blank" rel="noopener">The Dictator</a></div>
         </div>
       </div>
     </section>
 
+
     <section id="posts">
       <h1>Gönderilerim</h1>
+
       <div class="project-card">
-        <a href="https://github.com/HamzaDon
+        <a href="https://github.com/HamzaDonmez/Gemini-Voice-AI-Assistant" target="_blank" rel="noopener">Gemini AI Voice Assistant</a>
+        <p>Yapay zeka tabanlı sesli asistan projesi — demo, kod ve kullanım talimatları GitHub'da.</p>
+      </div>
+
+      <div class="project-card">
+        <a href="https://github.com/HamzaDonmez/GEMAID" target="_blank" rel="noopener">GEMAID</a>
+        <p>Yapay zeka destekli asistan projesi.</p>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <h2>Bağlantılar</h2>
+    <div class="links">
+      <a href="https://www.linkedin.com/in/hamza-d%C3%B6nmez-4907b9383" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/HamzaDonmez" target="_blank" rel="noopener">GitHub</a>
+      <a href="mailto:hamzadonmez53@gmail.com">E-posta</a>
+    </div>
+  </footer>
+
+  <script>
+
+    const navItems = document.querySelectorAll("nav ul li");
+    const sections = document.querySelectorAll("section");
+
+    function showSection(targetId) {
+      sections.forEach(sec => {
+        if (sec.id === targetId) {
+          sec.classList.add("active");
+        } else {
+          sec.classList.remove("active");
+        }
+      });
+
+      navItems.forEach(li => {
+        if (li.dataset.target === targetId) {
+          li.classList.add("active");
+        } else {
+          li.classList.remove("active");
+        }
+      });
+
+
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    navItems.forEach(item => {
+      item.addEventListener("click", () => {
+        const target = item.dataset.target;
+        showSection(target);
+      });
+    });
+
+    const hash = location.hash.replace("#", "");
+    if (hash) {
+      const matching = Array.from(sections).find(s => s.id === hash);
+      if (matching) showSection(hash);
+    }
+  </script>
+</body>
+</html>
