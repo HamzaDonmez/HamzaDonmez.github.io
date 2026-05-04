@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Oyun Geliştirme ve Tasarım</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Ana Sayfa</a></li>
+            <li><a href="hakkimda.html">Benim Hakkımda</a></li>
+            <li><a href="resimler.html">Resimler</a></li>
+            <li><a href="ozel-sayfa.html">Lumen Teknolojisi</a></li>
+            <li><a href="iletisim.html">İletişim</a></li>
+        </ul>
+    </nav>
+
+<h1>Unreal Engine 5: Lumen Teknolojisi</h1>
+
+    <p>Lumen, Unreal Engine 5 ile birlikte kullanıma sunulan, tam dinamik bir küresel aydınlatma  ve yansıma  sistemidir. Oyun geliştirme süreçlerinde ışıklandırma mimarisini baştan aşağı değiştiren bu teknoloji, sahnelerdeki ışık ve gölge hesaplamalarını gerçek zamanlı olarak milisaniyeler içinde gerçekleştirir.</p>
+
+    <h2>Geleneksel Işıklandırma  Sorunu</h2>
+    <p>Geleneksel oyun motoru teknolojilerinde, yüksek kaliteli bir küresel aydınlatma elde etmek için "Lightmap Baking" (ışık haritası pişirme) adı verilen bir yöntem kullanılırdı. Bu yöntemde statik objelerin ışık ve gölge verileri önceden hesaplanarak dokular halinde objelerin üzerine kaplanırdı. Ancak bu süreç, her ışık veya obje değişikliğinde saatlerce sürebilen yeniden hesaplama (build) işlemleri gerektirirdi. Ayrıca dinamik nesneler bu fırınlanmış ışıklandırmadan tam olarak etkilenmezdi.</p>
+
+    <h2>Lumen'in Getirdiği Çözüm ve Gerçek Zamanlılık</h2>
+    <p>Lumen, ışık pişirme zorunluluğunu ve ışık haritaları için UV açma (UV unwrapping) işlemini tamamen ortadan kaldırır. Sahnede bir ışık kaynağının (örneğin güneş, bir el feneri veya patlayan bir bomba) konumu, rengi veya şiddeti değiştiğinde; ışığın yüzeylerden sekmesi (indirect lighting) ve yansımalar anında yeniden hesaplanır. Örneğin, bir karaktere bağlı el feneri kırmızı bir duvara tutulduğunda, duvardan seken kırmızımtırak ışık odanın diğer köşelerini fiziksel olarak doğru bir şekilde aydınlatır.</p>
+
+    <h2>Teknik Altyapı: Yazılım ve Donanım Tabanlı Işın İzleme</h2>
+    <p>Lumen, hem donanım hızlandırmalı ışın izleme (Hardware Ray Tracing - özel RT çekirdekleri kullanan GPU'lar) hem de yazılım tabanlı ışın izleme (Software Ray Tracing) yöntemleriyle çalışabilir. Geniş donanım uyumluluğu sağlamak için varsayılan olarak yazılım tabanlı yöntemi ve "Mesh Signed Distance Fields" (SDF) sistemini kullanır. Bu sistem, sahnedeki objelerin basitleştirilmiş, hacimsel bir kopyasını arka planda oluşturarak ışınların bu kopyalar üzerinden sekmesini hesaplar. Bu sayede ağır donanım gereksinimlerine ihtiyaç duymadan yüksek performanslı sonuçlar elde edilir.</p>
+
+    <h2>Geliştirilmiş Yansımalar (Lumen Reflections)</h2>
+    <p>Küresel aydınlatmanın yanı sıra yansımalar da Lumen sisteminin entegre bir parçasıdır. Geleneksel "Screen Space Reflections" (SSR) yöntemi, yalnızca kameranın o an gördüğü açıdaki objeleri yansıtabilirdi; objeler görüş alanından çıktığında yansımalar kaybolur veya bozulurdu. Lumen yansımaları ise görüş alanı dışında kalan objeleri, dinamik gölgeleri ve çoklu ışık sekmelerini yansıtıcı yüzeylerde doğru bir biçimde oluşturur.</p>
+
+    <h2>Atmosfer ve Tasarım Sürecine Etkisi</h2>
+    <p>Bu teknoloji, özellikle indie oyun geliştiricilerine zaman açısından çok büyük fayda sağlar. Geliştirici, oyunu durdurup ışık hesaplaması beklemek yerine, sahneyi tasarlarken ışığın nihai halini editör içinde anında görür. Bu durum hem iterasyon hızını inanılmaz derecede artırır hem de oyuncuya gerçekçi, karanlık ve etkileşimli ortamlar sunulmasına olanak tanır.</p>
+
+</body>
+</html>
